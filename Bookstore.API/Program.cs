@@ -1,3 +1,5 @@
+using Bookstore.API;
+using Bookstore.Domain;
 using Bookstore.Infra.Data.Context;
 using Bookstore.Infra.IoC;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +14,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookstoreDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BookstoreConnection")));
+
+// Bookstore configuration services
+builder.Services.AddSingleton(typeof(WebApplicationBuilder), builder);
+builder.Services.AddSingleton<IBookstoreConfiguration, BookstoreConfiguration>();
 
 // Bookstore services
 builder.Services.RegisterServices();

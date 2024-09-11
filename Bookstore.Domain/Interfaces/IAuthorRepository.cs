@@ -11,6 +11,7 @@ namespace Bookstore.Domain.Interfaces
     {
         IEnumerable<Author> GetAuthors();
         Author GetAuthor(int id);
+        Author GetByRut(int rut);
         Task<Author> Create(Author author);
     }
 }

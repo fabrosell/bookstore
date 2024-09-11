@@ -1,6 +1,7 @@
 ﻿using Bookstore.Domain.Interfaces;
 using Bookstore.Domain.Models;
 using Bookstore.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Bookstore.Infra.Data.Repositories
 
         public IEnumerable<Book> GetBooks()
         {
-            return _bookstoreDbContext.Books;
+            return _bookstoreDbContext.Books.Include(x => x.Author);
         }
 
         public IEnumerable<Book> GetBooksByAuthor(int author_id)

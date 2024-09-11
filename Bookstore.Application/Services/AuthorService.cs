@@ -1,5 +1,6 @@
 ﻿using Bookstore.Application.DTO;
 using Bookstore.Application.Interfaces;
+using Bookstore.Domain.Exceptions;
 using Bookstore.Domain.Interfaces;
 using Bookstore.Domain.Models;
 using System;
@@ -20,7 +21,7 @@ namespace Bookstore.Application.Services
         }
 
         public async Task<AuthorDTO> CreateAuthor(AuthorDTO author)
-        {
+        {                
             var authorEntity = new Author()
             {
                 RUT = author.RUT,
@@ -30,6 +31,9 @@ namespace Bookstore.Application.Services
                 City = author.City,
                 eMail = author.eMail,
             };
+
+            if (!authorEntity.IsValid())
+                throw new InvalidAuthorException(authorEntity.Error_Messages());
 
             var created_author = await this._authorRepository.Create(authorEntity);
 

@@ -38,5 +38,10 @@ namespace Bookstore.Infra.Data.Repositories
         {
             return _bookstoreDbContext.Authors.ToList();
         }
+
+        public Author GetByRut(int rut)
+        {
+            return _bookstoreDbContext.Authors?.Where(x => x.RUT == rut).FirstOrDefault();
+        }
     }
 }

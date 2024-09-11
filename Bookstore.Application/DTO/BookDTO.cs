@@ -15,8 +15,8 @@ namespace Bookstore.Application.DTO
         public string Genre { get; set; }
         public int Pages { get; set; }
         public string ISBN { get; set; }
-        public int Author_Id { get; set; }
-        public string? Author_RUT { get; set; }
+        public int Author_RUT { get; set; }
+        public char Autor_RUT_DV { get; set; }
         public string? Author_FullName { get; set; }
 
         public BookDTO()
@@ -31,10 +31,9 @@ namespace Bookstore.Application.DTO
             this.Year = book.Year;
             this.Genre = book.Genre;
             this.Pages = book.Pages;
-            this.ISBN = book.ISBN;
-            this.Author_Id = book.Author.Id;
-            // TODO: properly format rut number with thousand separator .
-            this.Author_RUT = $"{book.Author.RUT}-{book.Author.DV}";
+            this.ISBN = book.ISBN;            
+            this.Author_RUT = book.Author.RUT;
+            this.Autor_RUT_DV = book.Author.DV;
             this.Author_FullName = book.Author.FullName;
         }
     }
