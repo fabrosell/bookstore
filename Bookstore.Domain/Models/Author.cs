@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Domain.Models
 {
-    public class Authors
+    public class Author
     {
         [Key]
         public int Id { get; set; }

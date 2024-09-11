@@ -12,7 +12,7 @@ namespace Bookstore.Infra.Data.Context
     {
         public BookstoreDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Authors> Authors { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }        
     }
 }
