@@ -54,7 +54,7 @@ namespace Bookstore.Infra.Data.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("Bookstore.Domain.Models.Book", b =>
@@ -90,7 +90,7 @@ namespace Bookstore.Infra.Data.Data.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("Bookstore.Domain.Models.Book", b =>

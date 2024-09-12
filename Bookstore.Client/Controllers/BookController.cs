@@ -43,7 +43,7 @@ namespace Bookstore.Client.Controllers
 
             var handler = new HttpClientHandler();
 
-            using (var httpClient = new HttpClient())
+             using (var httpClient = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(book), Encoding.UTF8, "application/json");
 
