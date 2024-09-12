@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = "Libros / Books";
+}
+
+
+<h2>Todos los Libros</h2>
+ <a asp-action="AddBook" class="btn btn-sm btn-primary">Agregar Libro / Add Book</a>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Género</th>
+            <th>ISBN</th>
+            <th>Páginas</th>
+            <th>Año</th>
+            <th>Nombre del Autor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Name</td>
+                <td>@book.Genre</td>
+                <td>@book.ISBN</td>
+                <td>@book.Pages</td>
+                <td>@book.Year</td>
+                <td>@book.Author_FullName</td>
+            </tr>
+        }
+    </tbody>
+</table>

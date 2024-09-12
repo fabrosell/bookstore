@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Author>
+
+@{
+    ViewData["Title"] = "Autores / Authors";
+}
+
+
+<h2>Todos los Autores</h2>
+<a asp-action="AddAuthor" class="btn btn-sm btn-primary">Agregar Autor / Add Author</a>
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre Completo</th>
+            <th>Fecha Nacimiento</th>
+            <th>Ciudad de Origen</th>
+            <th>eMail</th>
+            <th>RUT</th>
+            <th>DV</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.Id</td>
+                <td>@author.FullName</td>
+                <td>@author.BirthDate?.ToString("dd/MM/yyyy")</td>
+                <td>@author.City</td>
+                <td>@author.eMail</td>
+                <td>@author.RUT</td>
+                <td>@author.DV</td>
+            </tr>
+        }
+    </tbody>
+</table>

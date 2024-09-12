@@ -9,7 +9,7 @@ namespace Bookstore.Domain.Interfaces
 {
     public interface IAuthorRepository
     {
-        IEnumerable<Author> GetAuthors();
+        IEnumerable<Author> GetAuthors(string? searchterm = null);
         Author GetAuthor(int id);
         Author GetByRut(int rut);
         Task<Author> Create(Author author);

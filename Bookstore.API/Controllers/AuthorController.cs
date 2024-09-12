@@ -1,6 +1,8 @@
 ﻿using Bookstore.Application.DTO;
 using Bookstore.Application.Interfaces;
+using Bookstore.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 
 namespace Bookstore.API.Controllers
 {
@@ -22,9 +24,21 @@ namespace Bookstore.API.Controllers
         }
 
         [HttpPost]
-        public async Task<AuthorDTO> Create(AuthorDTO author)
+        public async Task<IActionResult> Create(AuthorDTO author)
         {
-            return await this._authorService.CreateAuthor(author);
+            try
+            {
+                var created_author = await this._authorService.CreateAuthor(author);
+
+                return Ok(created_author);
+            }
+            catch (Exception ex)
+            {
+                if (ex is BookstoreException)
+                    return BadRequest(ex.Message);
+
+                return StatusCode(500);
+            }
         }
     }
 }

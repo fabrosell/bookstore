@@ -1,0 +1,47 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Agregar un Libro / Add a Book";
+}
+
+<h2>Agregar un Libro / Add a Book <a asp-action="Index" class="btn btn-sm btn-secondary">Atrás / Back</a></h2>
+<form asp-action="AddBook" method="post" class="col-md-6">
+    <div class="form-group">
+        <label for="Name">Título:</label>
+        <input class="form-control" name="Name" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="BirthDate">Año:</label>
+        <input class="form-control" name="Year" type="number" asp-for="Year" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Genre">Género:</label>
+        <input class="form-control" name="Genre" asp-for="Genre" />
+    </div>
+    <div class="form-group">
+        <label for="Pages">Páginas</label>
+        <input class="form-control" name="Pages" type="number" asp-for="Pages" />
+        <span asp-validation-for="Pages" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="ISBN">ISBN:</label>
+        <input class="form-control" name="ISBN" asp-for="ISBN" />
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Author_RUT">RUT Autor:</label>
+        <input class="form-control" name="Author_RUT" type="number" asp-for="Author_RUT" />
+        <span asp-validation-for="Author_RUT" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Autor_RUT_DV">Rut DV</label>
+        <input class="form-control" name="Autor_RUT_DV" maxlength="1" asp-for="Autor_RUT_DV" />
+        <span asp-validation-for="Autor_RUT_DV" class="text-danger"></span>
+    </div>
+    <div asp-validation-summary="All">        
+    </div>
+    <div class="text-center panel-body mt-3">
+        <button type="submit" class="btn btn-sm btn-primary">Crear Libro / Add Book</button>
+    </div>
+</form>

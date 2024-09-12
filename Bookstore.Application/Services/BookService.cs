@@ -38,7 +38,7 @@ namespace Bookstore.Application.Services
 
             var author_books = this._bookRepository.GetBooksByAuthor(author.Id);
             
-            if (author_books is not null && author_books.Count() > this._bookstoreConfiguration.Get_Max_Books_Per_Author())
+            if (author_books is not null && author_books.Count() >= this._bookstoreConfiguration.Get_Max_Books_Per_Author())
                 throw new MaxBooksPerAuthorException($"No es posible registrar el libro, se alcanzó el máximo permitido (max: {this._bookstoreConfiguration.Get_Max_Books_Per_Author()})");            
 
             var bookEntity = new Book()

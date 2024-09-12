@@ -40,9 +40,21 @@ namespace Bookstore.Application.Services
             return new AuthorDTO(created_author);
         }
 
-        public IEnumerable<AuthorDTO> GetAuthors()
+        public IEnumerable<AuthorDTO> GetAuthors(string? searchterm = null)
         {
-            return this._authorRepository.GetAuthors()?.Select<Author, AuthorDTO>(x => new AuthorDTO(x));
+            return this._authorRepository.GetAuthors(searchterm)?.Select<Author, AuthorDTO>(x => new AuthorDTO(x));
+        }
+
+        public AuthorDTO GetByRut(int rut)
+        {
+            AuthorDTO authorDto = null;
+
+            var author = this._authorRepository.GetByRut(rut);
+
+            if (author is not null)
+                authorDto = new AuthorDTO(author);
+
+            return authorDto;
         }
     }
 }

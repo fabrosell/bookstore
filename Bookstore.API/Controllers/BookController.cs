@@ -1,5 +1,6 @@
 ﻿using Bookstore.Application.DTO;
 using Bookstore.Application.Interfaces;
+using Bookstore.Domain.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,9 +24,21 @@ namespace Bookstore.API.Controllers
         }
 
         [HttpPost]
-        public async Task<BookDTO> Create(BookDTO book)
+        public async Task<IActionResult> Create(BookDTO book)
         {
-            return await this._bookService.CreateBook(book);
+            try
+            {
+                var created_book = await this._bookService.CreateBook(book);
+
+                return Ok(created_book);
+            }
+            catch (Exception ex)
+            {
+                if (ex is BookstoreException)
+                    return BadRequest(ex.Message);
+
+                return StatusCode(500);
+            }
         }
     }
 }

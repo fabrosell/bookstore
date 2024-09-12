@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Application", "Bo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Infra.IoC", "Bookstore.Infra.IoC\Bookstore.Infra.IoC.csproj", "{2FA22086-73AB-42D9-8060-1D6846EFAF78}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Client", "API Client", "{B0FEC415-33AB-4A3F-9383-D11640944CF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Client", "Bookstore.Client\Bookstore.Client.csproj", "{558D495C-AF5B-4B1C-9CBD-BC203565170F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{2FA22086-73AB-42D9-8060-1D6846EFAF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FA22086-73AB-42D9-8060-1D6846EFAF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FA22086-73AB-42D9-8060-1D6846EFAF78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558D495C-AF5B-4B1C-9CBD-BC203565170F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558D495C-AF5B-4B1C-9CBD-BC203565170F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558D495C-AF5B-4B1C-9CBD-BC203565170F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558D495C-AF5B-4B1C-9CBD-BC203565170F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,7 @@ Global
 		{D1D58B9F-4374-4DB3-B94F-DA8758A9E92D} = {EACD5A44-5D5C-4DFB-B968-53C21B2D6A20}
 		{3D4D99B7-1E80-46E6-97E0-9171C872BC93} = {D7122DA7-5F17-407B-AAB9-49E049C035EA}
 		{2FA22086-73AB-42D9-8060-1D6846EFAF78} = {BA0FCF43-A6D4-4379-A4CC-B6F4804447D2}
+		{558D495C-AF5B-4B1C-9CBD-BC203565170F} = {B0FEC415-33AB-4A3F-9383-D11640944CF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B7F574E-4271-4157-9851-7167D040E5EF}

@@ -34,9 +34,13 @@ namespace Bookstore.Infra.Data.Repositories
             return _bookstoreDbContext.Authors?.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public IEnumerable<Author> GetAuthors()
+        public IEnumerable<Author> GetAuthors(string? searchterm = null)
         {
-            return _bookstoreDbContext.Authors.ToList();
+            return _bookstoreDbContext.Authors
+                .Where(x => searchterm == null 
+                        || (searchterm != null && (x.FullName.Contains(searchterm, StringComparison.CurrentCultureIgnoreCase)
+                                                   || x.RUT.ToString().Contains(searchterm) ) ))
+                .ToList();
         }
 
         public Author GetByRut(int rut)

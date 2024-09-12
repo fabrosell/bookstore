@@ -9,7 +9,8 @@ namespace Bookstore.Application.Interfaces
 {
     public interface IAuthorService
     {
-        IEnumerable<AuthorDTO> GetAuthors();
+        IEnumerable<AuthorDTO> GetAuthors(string? searchterm = null);
+        AuthorDTO GetByRut(int rut);        
         Task<AuthorDTO> CreateAuthor(AuthorDTO book);
     }
 }
